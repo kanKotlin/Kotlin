@@ -12,6 +12,8 @@ import android.view.ViewGroup
 import com.kotlin.R
 import com.kotlin.domain.Cover
 import com.kotlin.network.CoverSource
+import com.kotlin.snackbar
+import com.kotlin.ui.activity.ComicActivity
 import com.kotlin.ui.adapter.CoverAdapter
 import org.jetbrains.anko.async
 import org.jetbrains.anko.uiThread
@@ -64,10 +66,10 @@ class HomeFragment : Fragment(){
     }
 
     private fun jump2Comic(position: Int) {
-//        homeRefresh.snackbar(mData[position].link)
-//        var intent = Intent(context, ComicActivity().javaClass)
-//        intent.putExtra(ComicActivity.INTENT_COMIC_URL, mData[position].link)
-//        startActivity(intent)
+        homeRefresh.snackbar(mData[position].link)
+        var intent = Intent(context, ComicActivity().javaClass)
+        intent.putExtra(ComicActivity.INTENT_COMIC_URL, mData[position].link)
+        startActivity(intent)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

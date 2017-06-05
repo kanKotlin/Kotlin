@@ -1,5 +1,6 @@
 package com.kotlin.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.widget.SwipeRefreshLayout
@@ -11,6 +12,7 @@ import android.view.ViewGroup
 import com.kotlin.R
 import com.kotlin.domain.Cover
 import com.kotlin.network.BookSource
+import com.kotlin.ui.activity.BookDetailActivity
 import com.kotlin.ui.adapter.CoverAdapter
 import org.jetbrains.anko.async
 import org.jetbrains.anko.uiThread
@@ -65,12 +67,12 @@ class BookFragment : Fragment() {
      * click event to detail activity
      */
     private fun jump2Detail(position: Int) {
-//        var intent = Intent(context, BookDetailActivity().javaClass)
-//
-//        intent.putExtra(BookDetailActivity.INTENT_COVER_URL, mData[position].coverUrl)
-//        intent.putExtra(BookDetailActivity.INTENT_URL, mData[position].link)
-//        intent.putExtra(BookDetailActivity.INTENT_TITLE, mData[position].title)
-//        startActivity(intent)
+        var intent = Intent(context, BookDetailActivity().javaClass)
+
+        intent.putExtra(BookDetailActivity.INTENT_COVER_URL, mData[position].coverUrl)
+        intent.putExtra(BookDetailActivity.INTENT_URL, mData[position].link)
+        intent.putExtra(BookDetailActivity.INTENT_TITLE, mData[position].title)
+        startActivity(intent)
     }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
